@@ -14,4 +14,12 @@ fun interface Worker {
             }
         )
     }
+
+    fun withInputFileAsSingleString(inputFile: String) {
+        println(
+            inputFile.asResource { wholeInput ->
+                work(listOf(wholeInput))
+            }
+        )
+    }
 }
