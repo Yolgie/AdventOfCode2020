@@ -48,7 +48,7 @@ data class Passport(
     val countryId: CountryId? = null,
 ) {
     private val fields =
-        listOf<Validated?>(birthYear, issueYear, expirationYear, height, hairColor, eyeColor, passportId)
+        listOf(birthYear, issueYear, expirationYear, height, hairColor, eyeColor, passportId)
     val isValid = fields.all { it?.isValid ?: false }
     val isThere = fields.none { it == null }
 }

@@ -1,7 +1,7 @@
 package at.cnoize.contest.util
 
 fun interface Worker {
-    fun work(input: List<String>): String
+    fun work(input: Iterable<String>): String
 
     fun withInputFile(inputFile: String) {
         println(
