@@ -5,7 +5,7 @@ import at.cnoize.contest.util.Worker
 const val INPUT_FILE ="Day03.input"
 
 fun main() {
-    //workerPuzzle1.withInputFile(INPUT_FILE)
+    workerPuzzle1.withInputFile(INPUT_FILE)
     workerPuzzle2.withInputFile(INPUT_FILE)
 }
 
@@ -28,7 +28,7 @@ val workerPuzzle2 = Worker { input ->
         .toString()
 }
 
-private fun countTreesHit(input: List<String>, horizontalStep: Int, verticalStep: Int): Int {
+private fun countTreesHit(input: Iterable<String>, horizontalStep: Int, verticalStep: Int): Int {
     return input.mapIndexed { index, row ->
         if (index % verticalStep == 0) {
             row[horizontalStep * index / verticalStep % row.length] == '#'
