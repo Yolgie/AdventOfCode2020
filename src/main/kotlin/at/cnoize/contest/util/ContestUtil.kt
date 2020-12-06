@@ -23,6 +23,19 @@ fun <T> List<T>.minAndMax(): Pair<T, T> where T : Comparable<T> {
     )
 }
 
-fun Pair<Int, Int>.toRange(): IntRange {
-    return this.first..this.second
+fun Pair<Int, Int>.toRange(): IntRange =
+    this.first..this.second
+
+fun String.splitOnEmptyLine(): Collection<String> =
+    this.split("\n\n")
+        .filterNot(String::isNullOrEmpty)
+
+fun String.splitOnNewLine(): Collection<String> =
+    this.split("\n")
+        .filterNot(String::isNullOrEmpty)
+
+fun printlnIfNotNull(message: String?) {
+    if (!message.isNullOrBlank()) {
+        println(message)
+    }
 }
