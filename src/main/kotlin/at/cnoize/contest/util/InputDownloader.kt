@@ -3,9 +3,6 @@ package at.cnoize.contest.util
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.File
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.StandardOpenOption
 import java.time.LocalDate
 
 val DAY = LocalDate.now().dayOfMonth
@@ -26,4 +23,6 @@ fun main() {
             File("src/main/resources/Day${DAY.zeroPad(2)}.input")
                 .writeText(response.body?.string() ?: "")
         }
+
+    File("src/main/resources/Day${DAY.zeroPad(2)}.input.test").createNewFile()
 }

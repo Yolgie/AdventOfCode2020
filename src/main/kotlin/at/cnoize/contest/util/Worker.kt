@@ -3,7 +3,8 @@ package at.cnoize.contest.util
 fun interface Worker {
     fun work(input: Iterable<String>): String
 
-    fun withInputFile(inputFile: String) {
+    fun withInputFile(inputFile: String, title: String? = null) {
+        print(title)
         println(
             inputFile.asResource { wholeInput ->
                 work(
@@ -15,7 +16,8 @@ fun interface Worker {
         )
     }
 
-    fun withInputFileAsSingleString(inputFile: String) {
+    fun withInputFileAsSingleString(inputFile: String, title: String? = null) {
+        print(title)
         println(
             inputFile.asResource { wholeInput ->
                 work(listOf(wholeInput))
