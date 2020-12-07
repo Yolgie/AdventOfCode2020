@@ -10,6 +10,7 @@ fun interface Worker {
                 work(
                     wholeInput
                         .split('\n')
+                        .map(String::trim)
                         .filterNot(String::isBlank)
                 )
             }
