@@ -15,8 +15,6 @@ fun main() {
 
 val workerPuzzle1 = Worker { input ->
     val rules = input
-        .map(String::trim)
-        .filter(String::isNotEmpty)
         .map(RULE_REGEX::matchEntire)
         .filterNotNull()
         .map(MatchResult::parseRule)
@@ -30,14 +28,11 @@ val workerPuzzle1 = Worker { input ->
 
 val workerPuzzle2 = Worker { input ->
     val rules = input
-        .map(String::trim)
-        .filter(String::isNotEmpty)
         .map(RULE_REGEX::matchEntire)
         .filterNotNull()
         .map(MatchResult::parseRule)
 
     countChildrenRecursive(rules, SHINY_GOLD_BAG)
-        .minus(1) // the golden bag itself
         .toString()
 }
 
@@ -56,9 +51,8 @@ fun getChildrenRecursive(rules: List<Rule>, bag: Bag, children: Set<Bag> = empty
 
 fun countChildrenRecursive(rules: List<Rule>, bag: Bag): Int {
     return rules.find { it.bag == bag }?.content
-        ?.map { (bag, count) -> count * countChildrenRecursive(rules, bag) }
+        ?.map { (bag, count) -> count * (1 + countChildrenRecursive(rules, bag)) }
         ?.sum()
-        ?.plus(1) // the current bag
         ?: throw IllegalArgumentException("Bag $bag was not in the rules")
 }
 
