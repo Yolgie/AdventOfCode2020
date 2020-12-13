@@ -2,7 +2,7 @@ package at.cnoize.contest.adventOfCode2020.dayXX
 
 import at.cnoize.contest.util.Worker
 
-const val INPUT_FILE ="DayXX.input.test"
+const val INPUT_FILE = "DayXX.input.test"
 //const val INPUT_FILE ="DayXX.input"
 
 fun main() {
