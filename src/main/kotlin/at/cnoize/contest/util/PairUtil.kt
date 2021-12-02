@@ -20,3 +20,7 @@ fun <T> List<T>.minAndMax(): Pair<T, T> where T : Comparable<T> {
 
 fun Pair<Int, Int>.toRange(): IntRange =
         this.first..this.second
+
+fun Pair<Int, Int>.multiply(): Int {
+    return this.first * this.second
+}

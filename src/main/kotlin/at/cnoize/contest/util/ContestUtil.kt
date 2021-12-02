@@ -17,3 +17,5 @@ fun <T> Iterable<T>.update(index: Int, element: T) =
 
 fun Collection<BigInteger>.sum(): BigInteger =
         this.sumOf { it }
+
+fun <T> Iterable<T>.second(): T = this.drop(1).first()
